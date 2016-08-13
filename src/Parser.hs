@@ -29,9 +29,7 @@ bPair = do
 
 bDict :: Parser BAtom
 bDict = do
-    char 'd'
-    atoms <- many bPair
-    char 'e'
+    atoms <- char 'd' *> many bPair <* char 'e'
     return $ BDict atoms
 
 bValue :: Parser BAtom
